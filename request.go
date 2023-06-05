@@ -68,6 +68,7 @@ type Request struct {
 	QualifiedStatements *QualifiedStatements
 	MSExtension         *MSExtension
 	CustomExtensions    []OIDAndString
+	Signature           *SignaturePolicy
 	CSR                 *x509.CertificateRequest
 	PrivateKey          interface{}
 	PublicKey           interface{}
