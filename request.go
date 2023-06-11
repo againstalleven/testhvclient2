@@ -68,10 +68,15 @@ type Request struct {
 	QualifiedStatements *QualifiedStatements
 	MSExtension         *MSExtension
 	CustomExtensions    []OIDAndString
-	Signature           *SignaturePolicy
+	Signature           *Signature
 	CSR                 *x509.CertificateRequest
 	PrivateKey          interface{}
 	PublicKey           interface{}
+}
+
+type Signature struct {
+	Algorithm     string `json:"algorithm"`
+	HashAlgorithm string `json:"hash_algorithm"`
 }
 
 // Validity contains the requested not-before and not-after times for a
