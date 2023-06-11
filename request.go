@@ -172,6 +172,7 @@ type jsonRequest struct {
 	CustomExtensions    json.RawMessage      `json:"custom_extensions,omitempty"`
 	PublicKey           string               `json:"public_key,omitempty"`
 	PublicKeySignature  string               `json:"public_key_signature,omitempty"`
+	Signature           *Signature           `json:"signature,omitempty"`
 }
 
 // jsonOID is used internally for JSON marshalling/unmarshalling of
@@ -454,6 +455,7 @@ func (r *Request) UnmarshalJSON(b []byte) error {
 		QualifiedStatements: jsonreq.QualifiedStatements,
 		MSExtension:         jsonreq.MSExtension,
 		CustomExtensions:    exts,
+		Signature:           jsonreq.Signature,
 	}
 
 	return nil
